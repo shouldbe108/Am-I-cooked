@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Am I Cooked?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card">
+    <!-- Question view -->
+    <div id="question" class="fade-in-up">
+      <h1>AM I COOKED?</h1>
+      <p>One honest click. That’s it.</p>
+      <div class="question">Am I doing what I'm supposed to?</div>
+      <div class="btn-row">
+        <button class="btn-yes" id="btnYes">Yes</button>
+        <button class="btn-no" id="btnNo">No</button>
+      </div>
+    </div>
+
+    <!-- Answer view -->
+    <div id="answerView" class="hidden">
+      <div id="answerText" class="answer"></div>
+      <div id="subText" class="subtext"></div>
+      <button class="btn-reset" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
