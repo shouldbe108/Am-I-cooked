@@ -1,0 +1,1071 @@
+Recent and active threads will appear here.
+i want to create a stupid time pass website using html css and javascript. 
+
+it is called: am i cooked? 
+
+it gives the user 2 inputs: am i doing what i supposed to? button 1 yes. button 2 no. 
+
+if user clicks yes, then screen says -> not cooked. (a button beneath to reset back to question)
+
+
+if user clicks no, then screen says -> bro is cooked. (a button beneath to reset back to question)
+
+Here’s a super simple version you can copy into a single index.html file and open in your browser.
+
+xml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Am I Cooked?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050816;
+      color: #f5f5f5;
+    }
+
+    .card {
+      background: #111827;
+      border-radius: 16px;
+      padding: 32px 28px;
+      width: 320px;
+      max-width: 90vw;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #9ca3af;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    button {
+      flex: 1;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 0;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+    }
+
+    .btn-yes {
+      background: #16a34a;
+      color: #ecfdf5;
+      box-shadow: 0 8px 16px rgba(22, 163, 74, 0.45);
+    }
+    .btn-yes:hover {
+      background: #22c55e;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.55);
+    }
+
+    .btn-no {
+      background: #dc2626;
+      color: #fef2f2;
+      box-shadow: 0 8px 16px rgba(220, 38, 38, 0.4);
+    }
+    .btn-no:hover {
+      background: #ef4444;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(239, 68, 68, 0.5);
+    }
+
+    .btn-reset {
+      width: 100%;
+      margin-top: 20px;
+      background: #374151;
+      color: #e5e7eb;
+      box-shadow: 0 6px 14px rgba(55, 65, 81, 0.6);
+    }
+    .btn-reset:hover {
+      background: #4b5563;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(75, 85, 99, 0.7);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .answer {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .answer.ok {
+      color: #4ade80;
+    }
+
+    .answer.cooked {
+      color: #f97373;
+    }
+
+    .subtext {
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Question view -->
+    <div id="question">
+      <h1>Am I Cooked?</h1>
+      <p>Be honest with yourself.</p>
+      <p style="margin-bottom: 8px;">Am I doing what I'm supposed to?</p>
+      <div class="btn-row">
+        <button class="btn-yes" id="btnYes">Yes</button>
+        <button class="btn-no" id="btnNo">No</button>
+      </div>
+    </div>
+
+    <!-- Answer view -->
+    <div id="answerView" class="hidden">
+      <div id="answerText" class="answer"></div>
+      <div id="subText" class="subtext"></div>
+      <button class="btn-reset" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    const question = document.getElementById("question");
+    const answerView = document.getElementById("answerView");
+    const answerText = document.getElementById("answerText");
+    const subText = document.getElementById("subText");
+    const btnYes = document.getElementById("btnYes");
+    const btnNo = document.getElementById("btnNo");
+    const btnReset = document.getElementById("btnReset");
+
+    btnYes.addEventListener("click", () => {
+      answerText.textContent = "Not cooked.";
+      answerText.className = "answer ok";
+      subText.textContent = "Keep going, king.";
+      question.classList.add("hidden");
+      answerView.classList.remove("hidden");
+    });
+
+    btnNo.addEventListener("click", () => {
+      answerText.textContent = "Bro is cooked.";
+      answerText.className = "answer cooked";
+      subText.textContent = "Log off, touch grass, re-roll life choices.";
+      question.classList.add("hidden");
+      answerView.classList.remove("hidden");
+    });
+
+    btnReset.addEventListener("click", () => {
+      answerView.classList.add("hidden");
+      question.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
+
+If you tell me which part you want to tweak (colors, fonts, extra insults, animations), I can adjust the code.
+it should used only 3 primary colours. 
+
+it should use arial font. 
+
+it should be minimalist and have smooth animation.
+
+Here’s a minimalist version using exactly three colors, Arial, and smooth animations.
+
+Palette (only these three):
+
+    Background: #111111 (dark)
+
+    Accent: #ff4b4b (red)
+
+    Text: #ffffff (white)
+
+xml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Am I Cooked?</title>
+  <style>
+    :root {
+      --bg: #111111;
+      --accent: #ff4b4b;
+      --text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 32px 28px;
+      width: 320px;
+      max-width: 90vw;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(12px);
+      transform: translateY(8px);
+      opacity: 0;
+      animation: card-in 500ms ease-out forwards;
+    }
+
+    h1 {
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 13px;
+      margin-bottom: 18px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .question {
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      flex: 1;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      padding: 10px 0;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition:
+        background-color 200ms ease,
+        color 200ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 200ms ease;
+    }
+
+    .btn-yes {
+      /* outlined, subtle */
+    }
+
+    .btn-no {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-yes:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-no:hover {
+      background: var(--accent);
+      color: var(--bg);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 8px 18px rgba(255, 75, 75, 0.6);
+    }
+
+    .btn-reset {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 999px;
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .answer {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .answer.ok {
+      color: var(--text);
+    }
+
+    .answer.cooked {
+      color: var(--accent);
+    }
+
+    .subtext {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .fade-in-up {
+      animation: fade-in-up 260ms ease-out forwards;
+    }
+
+    .fade-out-down {
+      animation: fade-out-down 220ms ease-in forwards;
+    }
+
+    @keyframes card-in {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-out-down {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Question view -->
+    <div id="question" class="fade-in-up">
+      <h1>AM I COOKED?</h1>
+      <p>One honest click. That’s it.</p>
+      <div class="question">Am I doing what I'm supposed to?</div>
+      <div class="btn-row">
+        <button class="btn-yes" id="btnYes">Yes</button>
+        <button class="btn-no" id="btnNo">No</button>
+      </div>
+    </div>
+
+    <!-- Answer view -->
+    <div id="answerView" class="hidden">
+      <div id="answerText" class="answer"></div>
+      <div id="subText" class="subtext"></div>
+      <button class="btn-reset" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    const question = document.getElementById("question");
+    const answerView = document.getElementById("answerView");
+    const answerText = document.getElementById("answerText");
+    const subText = document.getElementById("subText");
+    const btnYes = document.getElementById("btnYes");
+    const btnNo = document.getElementById("btnNo");
+    const btnReset = document.getElementById("btnReset");
+
+    function showAnswer(main, sub, cooked) {
+      // animate question out
+      question.classList.remove("fade-in-up");
+      question.classList.add("fade-out-down");
+
+      setTimeout(() => {
+        question.classList.add("hidden");
+        question.classList.remove("fade-out-down");
+
+        answerText.textContent = main;
+        answerText.className = "answer " + (cooked ? "cooked" : "ok");
+        subText.textContent = sub;
+
+        answerView.classList.remove("hidden");
+        answerView.classList.add("fade-in-up");
+      }, 200);
+    }
+
+    btnYes.addEventListener("click", () => {
+      showAnswer("Not cooked.", "Keep going, you’re actually on script.", false);
+    });
+
+    btnNo.addEventListener("click", () => {
+      showAnswer("Bro is cooked.", "Close this tab, breathe, and reconsider your life side quests.", true);
+    });
+
+    btnReset.addEventListener("click", () => {
+      // animate answer out
+      answerView.classList.remove("fade-in-up");
+      answerView.classList.add("fade-out-down");
+
+      setTimeout(() => {
+        answerView.classList.add("hidden");
+        answerView.classList.remove("fade-out-down");
+
+        question.classList.remove("hidden");
+        question.classList.add("fade-in-up");
+      }, 200);
+    });
+  </script>
+</body>
+</html>
+
+If you want, I can also give you a version where the whole background subtly pulses when you’re “cooked” (still only using these three colors).
+can you separate the css, html and js parts
+
+Here it is split into three files, keeping the same look and behavior.
+index.html
+
+xml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Am I Cooked?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card">
+    <!-- Question view -->
+    <div id="question" class="fade-in-up">
+      <h1>AM I COOKED?</h1>
+      <p>One honest click. That’s it.</p>
+      <div class="question">Am I doing what I'm supposed to?</div>
+      <div class="btn-row">
+        <button class="btn-yes" id="btnYes">Yes</button>
+        <button class="btn-no" id="btnNo">No</button>
+      </div>
+    </div>
+
+    <!-- Answer view -->
+    <div id="answerView" class="hidden">
+      <div id="answerText" class="answer"></div>
+      <div id="subText" class="subtext"></div>
+      <button class="btn-reset" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+styles.css
+
+css
+:root {
+  --bg: #111111;
+  --accent: #ff4b4b;
+  --text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card {
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(12px);
+  transform: translateY(8px);
+  opacity: 0;
+  animation: card-in 500ms ease-out forwards;
+}
+
+h1 {
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 13px;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.question {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 200ms ease;
+}
+
+.btn-yes {
+  /* outlined, subtle */
+}
+
+.btn-no {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-yes:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+.btn-no:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(255, 75, 75, 0.6);
+}
+
+.btn-reset {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 999px;
+}
+
+.btn-reset:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+.hidden {
+  display: none;
+}
+
+.answer {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.answer.ok {
+  color: var(--text);
+}
+
+.answer.cooked {
+  color: var(--accent);
+}
+
+.subtext {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fade-in-up {
+  animation: fade-in-up 260ms ease-out forwards;
+}
+
+.fade-out-down {
+  animation: fade-out-down 220ms ease-in forwards;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+script.js
+
+js
+const question = document.getElementById("question");
+const answerView = document.getElementById("answerView");
+const answerText = document.getElementById("answerText");
+const subText = document.getElementById("subText");
+const btnYes = document.getElementById("btnYes");
+const btnNo = document.getElementById("btnNo");
+const btnReset = document.getElementById("btnReset");
+
+function showAnswer(main, sub, cooked) {
+  question.classList.remove("fade-in-up");
+  question.classList.add("fade-out-down");
+
+  setTimeout(() => {
+    question.classList.add("hidden");
+    question.classList.remove("fade-out-down");
+
+    answerText.textContent = main;
+    answerText.className = "answer " + (cooked ? "cooked" : "ok");
+    subText.textContent = sub;
+
+    answerView.classList.remove("hidden");
+    answerView.classList.add("fade-in-up");
+  }, 200);
+}
+
+btnYes.addEventListener("click", () => {
+  showAnswer(
+    "Not cooked.",
+    "Keep going, you’re actually on script.",
+    false
+  );
+});
+
+btnNo.addEventListener("click", () => {
+  showAnswer(
+    "Bro is cooked.",
+    "Close this tab, breathe, and reconsider your life side quests.",
+    true
+  );
+});
+
+btnReset.addEventListener("click", () => {
+  answerView.classList.remove("fade-in-up");
+  answerView.classList.add("fade-out-down");
+
+  setTimeout(() => {
+    answerView.classList.add("hidden");
+    answerView.classList.remove("fade-out-down");
+
+    question.classList.remove("hidden");
+    question.classList.add("fade-in-up");
+  }, 200);
+});
+
+Put all three files in the same folder and open index.html in your browser.
+nice! it works!!!!
+
+Can you comment every single line above so i can learn what is heppning? i learn by reverse engineering
+
+Nice, love that you’re reverse‑engineering it. Here’s every file with line‑by‑line comments.
+index.html (HTML + comments)
+
+xml
+<!DOCTYPE html> <!-- Tell the browser this is an HTML5 document -->
+<html lang="en"> <!-- Root element, page language is English -->
+<head> <!-- Head section: metadata, title, linked files -->
+  <meta charset="UTF-8" /> <!-- Use UTF-8 character encoding (supports most characters) -->
+  <title>Am I Cooked?</title> <!-- Text that shows on the browser tab -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Attach the external CSS file -->
+</head>
+<body> <!-- Visible page content starts here -->
+  <div class="card"> <!-- Centered card that contains everything -->
+
+    <!-- Question view -->
+    <div id="question" class="fade-in-up"> <!-- First screen: the question -->
+      <h1>AM I COOKED?</h1> <!-- Main heading text -->
+      <p>One honest click. That’s it.</p> <!-- Small subtitle text -->
+      <div class="question">Am I doing what I'm supposed to?</div> <!-- The actual question text -->
+      <div class="btn-row"> <!-- Flex container for the two buttons -->
+        <button class="btn-yes" id="btnYes">Yes</button> <!-- “Yes” button with class and ID -->
+        <button class="btn-no" id="btnNo">No</button> <!-- “No” button with class and ID -->
+      </div>
+    </div>
+
+    <!-- Answer view -->
+    <div id="answerView" class="hidden"> <!-- Second screen: answer, hidden by default -->
+      <div id="answerText" class="answer"></div> <!-- Main answer text goes here (JS fills it) -->
+      <div id="subText" class="subtext"></div> <!-- Smaller explanation text (JS fills it) -->
+      <button class="btn-reset" id="btnReset">Reset</button> <!-- Button to go back to question -->
+    </div>
+  </div>
+
+  <script src="script.js"></script> <!-- Attach the external JavaScript file at the end of body -->
+</body>
+</html>
+
+styles.css (CSS + comments)
+
+css
+:root { /* Root scope for CSS variables (available everywhere) */
+  --bg: #111111;      /* Dark background color */
+  --accent: #ff4b4b;  /* Accent red color */
+  --text: #ffffff;    /* Main text color (white) */
+}
+
+* { /* Apply to all elements */
+  box-sizing: border-box;      /* Include padding/border in width/height calculations */
+  margin: 0;                   /* Remove default outer margins */
+  padding: 0;                  /* Remove default inner padding */
+  font-family: Arial, sans-serif; /* Use Arial for all text, fallback to generic sans-serif */
+}
+
+body { /* Styles for the body element */
+  min-height: 100vh;          /* At least full viewport height */
+  display: flex;              /* Use flexbox for centering */
+  align-items: center;        /* Vertically center content */
+  justify-content: center;    /* Horizontally center content */
+  background: var(--bg);      /* Use the dark background variable */
+  color: var(--text);         /* Default text color is white */
+}
+
+.card { /* The main card container */
+  border-radius: 16px;                      /* Rounded corners */
+  padding: 32px 28px;                       /* Inner spacing (top/bottom, left/right) */
+  width: 320px;                             /* Fixed width */
+  max-width: 90vw;                          /* On small screens, max 90% of viewport width */
+  text-align: center;                       /* Center text inside card */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border using semi-transparent white */
+  background: rgba(17, 17, 17, 0.95);       /* Slightly transparent dark background */
+  backdrop-filter: blur(12px);              /* Blur background behind the card (glass effect) */
+  transform: translateY(8px);               /* Move card slightly down initially */
+  opacity: 0;                               /* Initially invisible */
+  animation: card-in 500ms ease-out forwards; /* Play the card-in animation on load */
+}
+
+h1 { /* Style for the main heading */
+  font-size: 22px;              /* Font size */
+  letter-spacing: 0.08em;       /* Space between letters */
+  text-transform: uppercase;    /* Force text to uppercase */
+  margin-bottom: 8px;           /* Space below the heading */
+}
+
+p { /* All <p> paragraphs */
+  font-size: 13px;                         /* Smaller text */
+  margin-bottom: 18px;                     /* Space below paragraphs */
+  color: rgba(255, 255, 255, 0.65);        /* Slightly dimmed white */
+}
+
+.question { /* The question text "Am I doing..." */
+  font-size: 14px;                         /* Slightly bigger than regular paragraph */
+  margin-bottom: 16px;                     /* Space below question */
+  color: rgba(255, 255, 255, 0.85);        /* A bit brighter than normal paragraph */
+}
+
+.btn-row { /* Container for Yes/No buttons */
+  display: flex;               /* Put buttons in a row */
+  gap: 10px;                   /* Space between buttons */
+  justify-content: center;     /* Center buttons horizontally */
+}
+
+button { /* Base style for all buttons */
+  flex: 1;                                      /* Each button takes equal width in the row */
+  border: 1px solid rgba(255, 255, 255, 0.16);  /* Thin semi-transparent border */
+  border-radius: 999px;                         /* Very rounded (pill) shape */
+  padding: 10px 0;                              /* Vertical padding, no horizontal */
+  cursor: pointer;                              /* Show pointer cursor on hover */
+  font-size: 13px;                              /* Button text size */
+  font-weight: 600;                             /* Semi-bold text */
+  background: transparent;                      /* No background by default */
+  color: var(--text);                           /* White text */
+  letter-spacing: 0.06em;                       /* Slight letter spacing */
+  text-transform: uppercase;                    /* Uppercase text */
+  transition:                                   /* Smooth animations when properties change */
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 200ms ease;
+}
+
+.btn-yes { /* “Yes” button (no extra styles, uses base) */
+  /* outlined, subtle */
+}
+
+.btn-no { /* “No” button specific styles */
+  border-color: var(--accent); /* Red border */
+  color: var(--accent);        /* Red text */
+}
+
+.btn-yes:hover { /* Hover effect for Yes button */
+  background: rgba(255, 255, 255, 0.08); /* Slight gray/white background */
+  transform: translateY(-1px);          /* Move button up slightly */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6); /* Soft shadow underneath */
+}
+
+.btn-no:hover { /* Hover effect for No button */
+  background: var(--accent);                /* Fill with red */
+  color: var(--bg);                         /* Text becomes dark */
+  transform: translateY(-1px) scale(1.02);  /* Move up and slightly grow */
+  box-shadow: 0 8px 18px rgba(255, 75, 75, 0.6); /* Red-tinted shadow */
+}
+
+.btn-reset { /* Reset button styles */
+  width: 100%;              /* Full width of the card */
+  margin-top: 20px;         /* Space above button */
+  border-radius: 999px;     /* Pill shape */
+}
+
+.btn-reset:hover { /* Hover effects for Reset button */
+  background: rgba(255, 255, 255, 0.06); /* Slight background change */
+  transform: translateY(-1px);           /* Move up slightly */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6); /* Shadow */
+}
+
+.hidden { /* Utility class to completely hide elements */
+  display: none; /* Element does not take space */
+}
+
+.answer { /* Main answer text styling */
+  font-size: 20px; /* Larger text */
+  font-weight: 700; /* Bold */
+  margin-bottom: 6px; /* Space below */
+}
+
+.answer.ok { /* “Not cooked” text style */
+  color: var(--text); /* White text */
+}
+
+.answer.cooked { /* “Bro is cooked” text style */
+  color: var(--accent); /* Red text */
+}
+
+.subtext { /* Small text under the main answer */
+  font-size: 11px;                        /* Tiny text */
+  color: rgba(255, 255, 255, 0.6);        /* Dim white */
+}
+
+.fade-in-up { /* Class to animate an element fading in upwards */
+  animation: fade-in-up 260ms ease-out forwards; /* Use the fade-in-up keyframes */
+}
+
+.fade-out-down { /* Class to animate an element fading out downwards */
+  animation: fade-out-down 220ms ease-in forwards; /* Use the fade-out-down keyframes */
+}
+
+@keyframes card-in { /* Animation for the card when the page loads */
+  from {
+    opacity: 0;               /* Start invisible */
+    transform: translateY(18px); /* Start lower on the screen */
+  }
+  to {
+    opacity: 1;               /* End fully visible */
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+@keyframes fade-in-up { /* Reusable animation for entering elements */
+  from {
+    opacity: 0;               /* Start invisible */
+    transform: translateY(8px); /* Slightly lower */
+  }
+  to {
+    opacity: 1;               /* End fully visible */
+    transform: translateY(0); /* At normal position */
+  }
+}
+
+@keyframes fade-out-down { /* Reusable animation for leaving elements */
+  from {
+    opacity: 1;               /* Start visible */
+    transform: translateY(0); /* Normal position */
+  }
+  to {
+    opacity: 0;               /* End invisible */
+    transform: translateY(8px); /* Slightly lower */
+  }
+}
+
+script.js (JavaScript + comments)
+
+js
+// Grab references to DOM elements (HTML elements) by their IDs
+const question = document.getElementById("question");    // The question container div
+const answerView = document.getElementById("answerView"); // The answer container div
+const answerText = document.getElementById("answerText"); // The main answer text element
+const subText = document.getElementById("subText");       // The smaller subtext element
+const btnYes = document.getElementById("btnYes");         // The "Yes" button
+const btnNo = document.getElementById("btnNo");           // The "No" button
+const btnReset = document.getElementById("btnReset");     // The "Reset" button
+
+// Reusable function to show the answer screen
+// main: main line of text ("Not cooked." or "Bro is cooked.")
+// sub: smaller description line under it
+// cooked: boolean (true if cooked, false if not cooked)
+function showAnswer(main, sub, cooked) {
+  // Remove any "fade-in" animation class from the question
+  question.classList.remove("fade-in-up");
+  // Add "fade-out" animation class to the question (start exit animation)
+  question.classList.add("fade-out-down");
+
+  // Wait for 200ms to let the fade-out animation play before switching views
+  setTimeout(() => {
+    // Hide question: add the "hidden" class
+    question.classList.add("hidden");
+    // Remove the fade-out class (clean up)
+    question.classList.remove("fade-out-down");
+
+    // Set the main answer text content
+    answerText.textContent = main;
+    // Set classes for the answer: base "answer" plus either "cooked" or "ok"
+    answerText.className = "answer " + (cooked ? "cooked" : "ok");
+    // Set the subtext content
+    subText.textContent = sub;
+
+    // Show the answer view: remove "hidden"
+    answerView.classList.remove("hidden");
+    // Add fade-in animation for the answer view
+    answerView.classList.add("fade-in-up");
+  }, 200); // 200ms delay matches the CSS animation timing
+}
+
+// When user clicks "Yes" button
+btnYes.addEventListener("click", () => {
+  // Call showAnswer with the "not cooked" message
+  showAnswer(
+    "Not cooked.",                                    // main answer
+    "Keep going, you’re actually on script.",         // subtext
+    false                                             // cooked flag (false = not cooked)
+  );
+});
+
+// When user clicks "No" button
+btnNo.addEventListener("click", () => {
+  // Call showAnswer with the "cooked" message
+  showAnswer(
+    "Bro is cooked.",                                 // main answer
+    "Close this tab, breathe, and reconsider your life side quests.", // subtext
+    true                                              // cooked flag (true = cooked)
+  );
+});
+
+// When user clicks "Reset" button
+btnReset.addEventListener("click", () => {
+  // Remove any fade-in animation from answer view
+  answerView.classList.remove("fade-in-up");
+  // Add fade-out animation class to answer view (start exit animation)
+  answerView.classList.add("fade-out-down");
+
+  // Wait a bit so fade-out animation can play
+  setTimeout(() => {
+    // Hide the answer view
+    answerView.classList.add("hidden");
+    // Remove fade-out class (cleanup)
+    answerView.classList.remove("fade-out-down");
+
+    // Show question again
+    question.classList.remove("hidden");
+    // Add fade-in animation so it appears smoothly
+    question.classList.add("fade-in-up");
+  }, 200); // Same duration as the fade-out animation
+});
+
+If you want, next step we can:
+
+    Add console logs so you can see the flow in DevTools, or
+
+    Do a version where you write it yourself and I only nudge when it breaks.
+
+Follow-ups
+How can I add sound effects to make it more engaging
+What new silly features can I add next
+How to make it responsive for mobile devices
+Can you help deploy it to GitHub Pages
+How to add animations for better visual appeal
+
+
+Cookie Policy
+
+We use cookies to enhance your experience. By clicking "Accept All Cookies" or selecting "Necessary Cookies", you agree to our privacy policy.
+Cookie Policy
+We use cookies to enhance your experience. By clicking "Accept All Cookies" or selecting "Necessary Cookies", you agree to our privacy policy.
